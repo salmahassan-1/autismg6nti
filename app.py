@@ -76,7 +76,7 @@ plt.axvline(age_median, color="green", linestyle="-", label="Median")
 plt.legend()
 
 st.pyplot(plt)
-
+plt.clf()
 sns.histplot(df["result"], kde=True)
 plt.title("Distribution of result")
 
@@ -94,17 +94,17 @@ plt.axvline(result_median, color="green", linestyle="-", label="Median")
 plt.legend()
 
 st.pyplot(plt)
-
+plt.clf()
 sns.boxplot(x=df["age"])
 plt.title("Box Plot for Age")
 plt.xlabel("Age")
 st.pyplot(plt)
-
+plt.clf()
 sns.boxplot(x=df["result"])
 plt.title("Box Plot for result")
 plt.xlabel("result")
 st.pyplot(plt)
-
+plt.clf()
 Q1 = df["age"].quantile(0.25)
 Q3 = df["age"].quantile(0.75)
 IQR = Q3 - Q1
@@ -135,7 +135,7 @@ for col in categorical_columns:
   plt.xlabel(col)
   plt.ylabel("Count")
   st.pyplot(plt)
-
+  plt.clf()
 st.write(df["Class/ASD"].value_counts())
 
 df["ethnicity"] = df["ethnicity"].replace({"?": "Others", "others": "Others"})
@@ -171,7 +171,7 @@ plt.figure(figsize=(15, 15))
 sns.heatmap(df.corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation heatmap")
 st.pyplot(plt)
-
+plt.clf()
 def replace_outliers_with_median(df, column):
   Q1 = df[column].quantile(0.25)
   Q3 = df[column].quantile(0.75)
